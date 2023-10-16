@@ -76,6 +76,7 @@ void Camera::setNewConfiguration(const SpinnakerConfig& config, const uint32_t& 
     // Set enable after frame rate encase its false
     setProperty(node_map_, "AcquisitionFrameRateEnable", config.acquisition_frame_rate_enable);
 
+#if 1
     // Set Trigger and Strobe Settings
     // NOTE: The trigger must be disabled (i.e. TriggerMode = "Off") in order to configure whether the source is
     // software or hardware.
@@ -88,6 +89,7 @@ void Camera::setNewConfiguration(const SpinnakerConfig& config, const uint32_t& 
     setProperty(node_map_, "LineSelector", config.line_selector);
     setProperty(node_map_, "LineMode", config.line_mode);
     setProperty(node_map_, "LineSource", config.line_source);
+#endif
 
     // Set auto exposure
     setProperty(node_map_, "ExposureMode", config.exposure_mode);

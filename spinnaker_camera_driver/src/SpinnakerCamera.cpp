@@ -415,7 +415,7 @@ void SpinnakerCamera::configureTrigger(bool enable, bool software)
             throw std::runtime_error("[SpinnakerCamera::configureTrigger] Unable to set trigger selector (node retrieval)");
         }
 
-        Spinnaker::GenApi::CEnumEntryPtr ptrTriggerSelectorFrameStart = ptrTriggerSelector->GetEntryByName("FrameStart");
+        Spinnaker::GenApi::CEnumEntryPtr ptrTriggerSelectorFrameStart = ptrTriggerSelector->GetEntryByName("AcquisitionStart");
         if (!Spinnaker::GenApi::IsAvailable(ptrTriggerSelectorFrameStart) || 
                 !Spinnaker::GenApi::IsReadable(ptrTriggerSelectorFrameStart))
         {
@@ -453,7 +453,7 @@ void SpinnakerCamera::configureTrigger(bool enable, bool software)
 
             ROS_INFO("Trigger source set to software.");
         } else {
-            // Set trigger mode to hardware ('Line0')
+            // Set trigger mode to hardware ('Line3')
             Spinnaker::GenApi::CEnumEntryPtr ptrTriggerSourceHardware = ptrTriggerSource->GetEntryByName("Line0");
             if (!Spinnaker::GenApi::IsAvailable(ptrTriggerSourceHardware) || 
                     !Spinnaker::GenApi::IsReadable(ptrTriggerSourceHardware))
